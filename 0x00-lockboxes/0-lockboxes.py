@@ -22,6 +22,6 @@ def canUnlockAll(boxes):
     if not isinstance(boxes, list):
         return False
 
-    if len(boxes) == 1:
+    if len(boxes) <= 1:
         return True
     return True if box_open(boxes, 0, [], 1, None) else False
