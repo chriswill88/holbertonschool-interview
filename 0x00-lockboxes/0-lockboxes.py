@@ -4,16 +4,19 @@ import sys
 sys.setrecursionlimit(1500)
 
 
-def box_open(boxes, key, open_boxes, n, solution):
+def box_open(boxes, key, open_boxes, timeop):
     """box_open - the recursive algorithm"""
-    if len(open_boxes) == len(boxes) or (
-            0 not in open_boxes and len(open_boxes) + 1 == len(boxes)):
-        return open_boxes
+    if timeop > len(boxes):
+        return False
+
     for i in boxes[key]:
         if i not in open_boxes:
-            solution = box_open(boxes, i, open_boxes + [i], n + 1, solution)
-    if solution:
-        return solution
+            if i < len(boxes):
+                open_boxes.append(i)
+                box_open(boxes, i, open_boxes, timeop + 1)
+
+    if len(open_boxes) == len(boxes):
+        return True
 
 
 def canUnlockAll(boxes):
@@ -26,4 +29,4 @@ def canUnlockAll(boxes):
 
     if (not boxes[0]):
         return False
-    return True if box_open(boxes, 0, [], 1, None) else False
+    return True if box_open(boxes, 0, [], 1) else False
