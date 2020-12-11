@@ -1,32 +1,37 @@
 #!/usr/bin/python3
 import sys
-"""This module contains the function for task 0"""
+"""
+This modual contains the lockbox function for task 0 of 0x00. Lockboxes.
+"""
 sys.setrecursionlimit(1500)
 
 
-def box_open(boxes, key, open_boxes, timeop):
-    """box_open - the recursive algorithm"""
-    if timeop > len(boxes):
-        return False
+def unlocky(timeOp, boxes, box, keyHolder):
+    """unlocky function for task 0"""
+    if timeOp > len(boxes):
+        return(False)
 
-    for i in boxes[key]:
-        if i not in open_boxes:
-            if i < len(boxes):
-                open_boxes.append(i)
-                box_open(boxes, i, open_boxes, timeop + 1)
+    for key in box:
+        if (key not in keyHolder):
+            if (key < len(boxes)):
+                keyHolder.append(key)
+                unlocky(timeOp + 1, boxes, boxes[key], keyHolder)
 
-    if len(open_boxes) == len(boxes):
-        return True
+    if (len(keyHolder) == len(boxes)):
+        return(True)
+
+    return(False)
 
 
 def canUnlockAll(boxes):
-    """
-    canUnlockAll - checks if all boxes can be unlocked
-    True if able to unlock all and false if not.
-    """
+    """canUnlockall function for task 0"""
+    keyHolder = [0]
     if (len(boxes) == 1):
         return True
 
     if (not boxes[0]):
         return False
-    return True if box_open(boxes, 0, [], 1) else False
+    box = boxes[0]
+    key = box[0]
+    timeOp = 1
+    return (unlocky(timeOp, boxes, box, keyHolder))
