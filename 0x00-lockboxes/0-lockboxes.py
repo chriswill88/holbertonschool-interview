@@ -1,5 +1,7 @@
 #!/usr/bin/python3
+import sys
 """This module contains the function for task 0"""
+sys.setrecursionlimit(1500)
 
 
 def box_open(boxes, key, open_boxes, n, solution):
