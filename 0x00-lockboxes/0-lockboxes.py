@@ -19,9 +19,12 @@ def canUnlockAll(boxes):
     canUnlockAll - checks if all boxes can be unlocked
     True if able to unlock all and false if not.
     """
-    if not isinstance(boxes, list):
+    if not isinstance(boxes, list) or len(boxes) == 0:
         return False
 
-    if len(boxes) <= 1:
+    if not (all(isinstance(x, list) for x in boxes)):
+        return False
+
+    if len(boxes) == 1:
         return True
     return True if box_open(boxes, 0, [], 1, None) else False
