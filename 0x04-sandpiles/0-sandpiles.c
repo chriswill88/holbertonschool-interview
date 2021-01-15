@@ -102,20 +102,11 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 		for (index = 0; index < 3; index++)
 			grid1[i][index] += grid2[i][index];
 
-	copygrid(grid1, grid2);
-	if (ischeck(grid1))
-	{
-		printf("=\n");
-		printgrid(grid1);
-	}
-
-	fix(grid1, grid2);
-
 	while (ischeck(grid1))
 	{
 		printf("=\n");
 		printgrid(grid1);
-		fix(grid1, grid2);
 		copygrid(grid1, grid2);
+		fix(grid1, grid2);
 	}
 }
