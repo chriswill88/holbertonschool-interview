@@ -9,8 +9,10 @@
  */
 int ischeck(int grid[3][3])
 {
-	for (int i = 0; i < 3; i++)
-		for (int index = 0; index < 3; index++)
+	int i, index;
+
+	for (i = 0; i < 3; i++)
+		for (index = 0; index < 3; index++)
 			if (grid[i][index] > 3)
 				return (1);
 	return (0);
@@ -26,8 +28,10 @@ int ischeck(int grid[3][3])
  */
 void fix(int grid1[3][3], int grid2[3][3])
 {
-	for (int i = 0; i < 3; i++)
-		for (int index = 0; index < 3; index++)
+	int i, index;
+
+	for (i = 0; i < 3; i++)
+		for (index = 0; index < 3; index++)
 			if (grid2[i][index] > 3)
 			{
 				grid1[i][index] -= 4;
@@ -55,9 +59,11 @@ void fix(int grid1[3][3], int grid2[3][3])
  */
 void printgrid(int grid[3][3])
 {
-	for (int i = 0; i < 3; i++)
+	int i, index;
+
+	for (i = 0; i < 3; i++)
 	{
-		for (int index = 0; index < 3; index++)
+		for (index = 0; index < 3; index++)
 			printf("%d ", grid[i][index]);
 		printf("\n");
 	}
@@ -73,8 +79,10 @@ void printgrid(int grid[3][3])
  */
 void copygrid(int grid1[3][3], int grid2[3][3])
 {
-	for (int i = 0; i < 3; i++)
-		for (int index = 0; index < 3; index++)
+	int i, index;
+
+	for (i = 0; i < 3; i++)
+		for (index = 0; index < 3; index++)
 			grid2[i][index] = grid1[i][index];
 }
 
@@ -88,8 +96,10 @@ void copygrid(int grid1[3][3], int grid2[3][3])
  */
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
-	for (int i = 0; i < 3; i++)
-		for (int index = 0; index < 3; index++)
+	int i, index;
+
+	for (i = 0; i < 3; i++)
+		for (index = 0; index < 3; index++)
 			grid1[i][index] += grid2[i][index];
 
 	copygrid(grid1, grid2);
