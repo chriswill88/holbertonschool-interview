@@ -5,7 +5,10 @@ int ischeck(int grid[3][3])
     for (int i = 0; i < 3; i++)
         for (int index = 0; index < 3; index++)
             if (grid[i][index] > 3)
+            {
+                tumbler(grid, i, index);
                 return (1);
+            }
     return (0);
 }
 
@@ -52,7 +55,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
         
     while (ischeck(grid1))
     {
-        tumbler(grid1, row, index);
+        printf("in loop\n");
         printgrid(grid1);
     }
 
