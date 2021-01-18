@@ -64,7 +64,11 @@ void printgrid(int grid[3][3])
 	for (i = 0; i < 3; i++)
 	{
 		for (index = 0; index < 3; index++)
-			printf("%d ", grid[i][index]);
+		{
+			printf("%d", grid[i][index]);
+			if (index < 2)
+				printf(" ");
+		}
 		printf("\n");
 	}
 }
