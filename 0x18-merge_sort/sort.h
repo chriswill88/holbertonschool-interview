@@ -1,5 +1,5 @@
-#ifndef __SPRC__
-#define __SPRC__
+#ifndef _SPRC_
+#define _SPRC_
 
 #include <stdlib.h>
 #include <stdio.h>
