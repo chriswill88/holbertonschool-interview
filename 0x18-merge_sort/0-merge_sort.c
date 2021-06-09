@@ -114,8 +114,6 @@ void merge_sort(int *array, size_t size)
 	if (!workarray)
 		return;
 
-	printf("Start merge sort\n");
-
 	TopDownMergeSort(array, workarray, size);
 	free(workarray);
 }
