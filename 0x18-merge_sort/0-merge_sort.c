@@ -82,24 +82,6 @@ void TopDownSplitMerge(int B[], size_t iBegin, size_t iEnd, int A[])
 	TopDownMerge(B, iBegin, iMiddle, iEnd, A);
 }
 
-
-/**
- * TopDownMergeSort - copies the array into a working buffer, starts the algo
- * @A: is the array
- * @B: is the working array
- * @n: is that size of the array
- *
- * Return: void
- */
-void TopDownMergeSort(int A[], int B[], size_t n)
-{
-	for (size_t k = 0; k < n; k++)
-		B[k] = A[k];
-
-	TopDownSplitMerge(B, 0, n, A);
-}
-
-
 /**
  * merge_sort - sorts an array using the merge sort algorithm
  * @array: the array we will sort
@@ -118,6 +100,10 @@ void merge_sort(int *array, size_t size)
 	if (!workarray)
 		return;
 
-	TopDownMergeSort(array, workarray, size);
+	for (size_t k = 0; k < size; k++)
+		workarray[k] = array[k];
+
+	TopDownSplitMerge(workarray, 0, size, array);
+
 	free(workarray);
 }
