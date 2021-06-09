@@ -32,7 +32,7 @@ void printArray(int A[], size_t iBegin, size_t iEnd)
  */
 void TopDownMerge(int A[], size_t iBegin, size_t iMiddle, size_t iEnd, int B[])
 {
-	size_t i = iBegin, j = iMiddle;
+	size_t i = iBegin, j = iMiddle, k;
 
 	printf("[left]: ");
 	printArray(A, iBegin, iMiddle);
@@ -42,7 +42,7 @@ void TopDownMerge(int A[], size_t iBegin, size_t iMiddle, size_t iEnd, int B[])
 	printArray(A, iMiddle, iEnd);
 	printf("\n");
 
-	for (size_t k = iBegin; k < iEnd; k++)
+	for (k = iBegin; k < iEnd; k++)
 	{
 		if (i < iMiddle && (j >= iEnd || A[i] <= A[j]))
 		{
@@ -72,12 +72,12 @@ void TopDownMerge(int A[], size_t iBegin, size_t iMiddle, size_t iEnd, int B[])
  */
 void TopDownSplitMerge(int B[], size_t iBegin, size_t iEnd, int A[])
 {
-	if (iEnd - iBegin <= 1)
-		return;
 	size_t iMiddle = (iEnd + iBegin) / 2;
 
+	if (iEnd - iBegin <= 1)
+		return;
 	TopDownSplitMerge(A, iBegin,  iMiddle, B);
-	TopDownSplitMerge(A, iMiddle,    iEnd, B);
+	TopDownSplitMerge(A, iMiddle, iEnd, B);
 	printf("Merging...\n");
 	TopDownMerge(B, iBegin, iMiddle, iEnd, A);
 }
@@ -91,7 +91,8 @@ void TopDownSplitMerge(int B[], size_t iBegin, size_t iEnd, int A[])
  */
 void merge_sort(int *array, size_t size)
 {
-	int *workarray;
+	size_t k = 0;
+	int *workarray = NULL;
 
 	if (size < 2)
 		return;
@@ -100,7 +101,7 @@ void merge_sort(int *array, size_t size)
 	if (!workarray)
 		return;
 
-	for (size_t k = 0; k < size; k++)
+	for (; k < size; k++)
 		workarray[k] = array[k];
 
 	TopDownSplitMerge(workarray, 0, size, array);
