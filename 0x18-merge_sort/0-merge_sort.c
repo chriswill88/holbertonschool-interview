@@ -94,7 +94,7 @@ void merge_sort(int *array, size_t size)
 	size_t k = 0;
 	int *workarray = NULL;
 
-	if (size < 2)
+	if (size < 2 || !array)
 		return;
 
 	workarray = malloc(size);
