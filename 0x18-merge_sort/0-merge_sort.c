@@ -110,7 +110,7 @@ void TopDownMergeSort(int A[], int B[], size_t n)
 void merge_sort(int *array, size_t size)
 {
 	int *workarray;
-	
+
 	if (size < 2)
 		return;
 
