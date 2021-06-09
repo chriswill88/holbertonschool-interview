@@ -35,11 +35,11 @@ void TopDownMerge(int A[], size_t iBegin, size_t iMiddle, size_t iEnd, int B[])
 	size_t i = iBegin, j = iMiddle;
 
 	printf("[left]: ");
-	printArray(B, iBegin, iMiddle);
+	printArray(A, iBegin, iMiddle);
 	printf("\n");
 
 	printf("[right]: ");
-	printArray(B, iMiddle, iEnd);
+	printArray(A, iMiddle, iEnd);
 	printf("\n");
 
 	for (size_t k = iBegin; k < iEnd; k++)
