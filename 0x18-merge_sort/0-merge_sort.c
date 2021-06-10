@@ -79,7 +79,7 @@ void TopDownSplitMerge(int B[], size_t iBegin, size_t iEnd, int A[])
 	TopDownSplitMerge(A, iBegin,  iMiddle, B);
 	TopDownSplitMerge(A, iMiddle, iEnd, B);
 	printf("Merging...\n");
-	TopDownMerge(B, iBegin, iMiddle, iEnd, A);
+	TopDownMerge(A, iBegin, iMiddle, iEnd, B);
 }
 
 /**
@@ -94,10 +94,11 @@ void merge_sort(int *array, size_t size)
 	size_t k = 0;
 	int *workarray = NULL;
 
+
 	if (size < 2 || !array)
 		return;
 
-	workarray = malloc(size);
+	workarray = malloc(size * sizeof(size));
 	if (!workarray)
 		return;
 
@@ -106,5 +107,7 @@ void merge_sort(int *array, size_t size)
 
 	TopDownSplitMerge(workarray, 0, size, array);
 
+	for (k = 0; k < size; k++)
+		array[k] = workarray[k];
 	free(workarray);
 }
