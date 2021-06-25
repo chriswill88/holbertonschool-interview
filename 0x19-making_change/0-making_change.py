@@ -3,12 +3,13 @@
 
 
 def makeChange(coins, total):
+    """tries to see how much change can be used to complete the total"""
     if total <= 0:
         return -1
-    
+
     coin = 0
     rev = sorted(coins, reverse=True)
-    
+
     for i in rev:
         mul = total // i
         coin += mul
