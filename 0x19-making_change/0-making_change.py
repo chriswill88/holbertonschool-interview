@@ -5,7 +5,7 @@
 def makeChange(coins, total):
     """tries to see how much change can be used to complete the total"""
     if total <= 0:
-        return -1
+        return 0
 
     coin = 0
     rev = sorted(coins, reverse=True)
