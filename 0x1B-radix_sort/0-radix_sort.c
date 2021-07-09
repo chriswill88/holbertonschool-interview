@@ -32,24 +32,18 @@ void sort(int *array, int *ptr, int max, int index, int placer, size_t size)
     int x = 0, y = 0;
 
     if (index > max * 10)
-    {
-        printf("index is -> %d\n", index);
         return ;
-    }
 
-    for (; x < 9; x++)
+    for (; x < 10; x++)
     {
         for (i = 0; i < size; i++)
         {
             if (x == indexer(array[i], index, placer))
             {
                 ptr[y] = array[i];
-                printf("[%d]", array[i]);
                 y++;
             }
         }
-        printf("\n");
-
     }
     copyArr(array, ptr, size);
     print_array(array, size);
@@ -70,8 +64,6 @@ void radix_sort(int *array, size_t size)
         ptr[i] = 0;
 
     max = maxer(array, size);
-    printf("max is %d\n", max);
-
     
     sort(array, ptr, max, 10, 1, size);
     free(ptr);
