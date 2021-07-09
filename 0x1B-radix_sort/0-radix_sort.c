@@ -47,8 +47,9 @@ void sort(int *array, int *ptr, int max, int index, int placer, size_t size)
                 printf("[%d]", array[i]);
                 y++;
             }
-            printf("\n");
         }
+        printf("\n");
+
     }
     copyArr(array, ptr, size);
     print_array(array, size);
