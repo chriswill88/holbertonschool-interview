@@ -96,6 +96,9 @@ void radix_sort(int *array, size_t size)
 	size_t i = 0;
 	int max, *ptr;
 
+	if (size == 1)
+		return;
+
 	if (!array)
 		return;
 
