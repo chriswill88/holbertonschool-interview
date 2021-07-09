@@ -44,8 +44,10 @@ void sort(int *array, int *ptr, int max, int index, int placer, size_t size)
             if (x == indexer(array[i], index, placer))
             {
                 ptr[y] = array[i];
+                printf("[%d]", array[i]);
                 y++;
             }
+            printf("\n");
         }
     }
     copyArr(array, ptr, size);
