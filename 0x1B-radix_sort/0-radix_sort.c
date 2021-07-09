@@ -97,7 +97,7 @@ void radix_sort(int *array, size_t size)
 	int max, *ptr;
 
 	if (!array)
-		return (NULL);
+		return;
 
 	ptr = malloc(size * sizeof(int));
 	if (ptr == NULL)
