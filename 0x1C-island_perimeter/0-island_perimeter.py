@@ -13,8 +13,17 @@ def island_perimeter(grid):
             if grid[row][ele] == 1:
                 try:
                     sumate += 1 if grid[row][ele - 1] == 0 else 0
+                except Exception:
+                    pass
+                try:
                     sumate += 1 if grid[row - 1][ele] == 0 else 0
+                except Exception:
+                    pass
+                try:
                     sumate += 1 if grid[row + 1][ele] == 0 else 0
+                except Exception:
+                    pass
+                try:
                     sumate += 1 if grid[row][ele + 1] == 0 else 0
                 except Exception:
                     pass
