@@ -4,17 +4,16 @@
 
 def island_perimeter(grid):
     """this function gets the perimeter of the island made of arrays"""
-    summer = 0
+    sumate = 0
+    rows = len(grid)
+    eles = len(grid[0])
 
-    for row in range(len(grid)):
-        for ele in range(len(grid[row])):
-            if grid[row][ele] == 1:
-                sumate = 0
-                if 0 < row < len(grid) - 1 and 0 < ele < len(grid[row]) - 1:
-                    sumate += 1 if grid[row][ele - 1] == 0 else 0
-                    sumate += 1 if grid[row][ele + 1] == 0 else 0
-                    sumate += 1 if grid[row - 1][ele] == 0 else 0
-                    sumate += 1 if grid[row + 1][ele] == 0 else 0
-                    summer += sumate
+    for row in range(rows):
+        for ele in range(eles):
+            if grid[row][ele] == 1 and 0 < row < rows and 0 < ele < eles:
+                sumate += 1 if grid[row + 1][ele] == 0 else 0
+                sumate += 1 if grid[row - 1][ele] == 0 else 0
+                sumate += 1 if grid[row][ele + 1] == 0 else 0
+                sumate += 1 if grid[row][ele - 1] == 0 else 0
 
-    return summer
+    return sumate
