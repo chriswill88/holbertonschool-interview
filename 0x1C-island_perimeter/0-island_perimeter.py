@@ -10,10 +10,21 @@ def island_perimeter(grid):
 
     for row in range(rows):
         for ele in range(eles):
-            if grid[row][ele] == 1 and 0 < row < rows - 1 and 0 < ele < eles - 1:
+            if grid[row][ele] == 1 and 0 < row < rows and 0 < ele < eles:
+              try:
                 sumate += 1 if grid[row + 1][ele] == 0 else 0
+              except Exception:
+                sumate += 1
+              try:
                 sumate += 1 if grid[row - 1][ele] == 0 else 0
+              except Exception:
+                sumate += 1
+              try:
                 sumate += 1 if grid[row][ele + 1] == 0 else 0
+              except Exception:
+                sumate += 1
+              try:
                 sumate += 1 if grid[row][ele - 1] == 0 else 0
-
+              except Exception:
+                sumate += 1
     return sumate
