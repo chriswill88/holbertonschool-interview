@@ -14,23 +14,23 @@ def island_perimeter(grid):
               sumate += 4
               # down
               try:
-                sumate -= 1 if grid[row + 1][ele] == 1 else 0
+                sumate -= 1 if grid[row + 1][ele] == 1 else -1
               except Exception:
-                sumate += 1
+                pass
               # up
               try:
-                sumate -= 1 if grid[row - 1][ele] == 1 else 0
+                sumate -= 1 if grid[row - 1][ele] == 1 else -1
               except Exception:
-                sumate += 1
+                pass
               # right
               try:
-                sumate -= 1 if grid[row][ele + 1] == 1 else 0
+                sumate -= 1 if grid[row][ele + 1] == 1 else -1
               except Exception:
-                sumate += 1
+                pass
               # left
               try:
-                sumate -= 1 if grid[row][ele - 1] == 1 else 0
+                sumate -= 1 if grid[row][ele - 1] == 1 else -1
               except Exception:
-                sumate += 1
+                pass
 
     return sumate
