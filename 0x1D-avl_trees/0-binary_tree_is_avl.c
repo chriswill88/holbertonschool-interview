@@ -1,6 +1,18 @@
 #include "binary_trees.h"
 
 /**
+ * max - returns the greater of two numbers
+ * 
+ * @num1: a number
+ * @num2: a number
+ * Return: the max
+ */
+int max(int num1, int num2)
+{
+	return (num1 > num2 ? num1 : num2);
+}
+
+/**
  * height - returns the height of the binary tree
  * @tree: ptr to the tree
  *
