@@ -2,7 +2,7 @@
 
 /**
  * max - returns the greater of two numbers
- * 
+ *
  * @num1: a number
  * @num2: a number
  * Return: the max
