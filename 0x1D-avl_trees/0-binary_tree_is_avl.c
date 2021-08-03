@@ -20,10 +20,9 @@ int max(int num1, int num2)
  */
 int height(binary_tree_t *tree)
 {
-	if (tree == NULL)
-		return (-1);
-	else
-		return (max(height(tree->left), height(tree->right)) + 1);
+	binary_tree_t *t = tree;
+
+	return (t == NULL ? -1 : (max(height(t->left), height(t->right)) + 1));
 }
 
 /**
@@ -34,10 +33,7 @@ int height(binary_tree_t *tree)
  */
 int binary_tree_is_avl(const binary_tree_t *tree)
 {
-	if (tree == NULL)
-		return (0);
+	binary_tree_t *t = tree;
 
-	if (height(tree->right) - height(tree->left) > 1)
-		return (0);
-	return (1);
+	return (t == NULL || (height(t->right) - height(t->left) > 1) ? 0 : 1);
 }
