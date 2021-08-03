@@ -29,4 +29,8 @@ int max(int num1, int num2);
 int height(binary_tree_t *tree);
 int binary_tree_is_avl(const binary_tree_t *);
 
+void binary_tree_print(const binary_tree_t *tree);
+
+binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
+
 #endif
