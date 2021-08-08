@@ -20,7 +20,7 @@ int max(int num1, int num2)
  */
 int height(binary_tree_t *tree)
 {
-	return (!tree ? -1 : (max(height(tree->left), height(tree->right)) + 1));
+	return (!tree ? 0 : (max(height(tree->left), height(tree->right)) + 1));
 }
 
 /**
