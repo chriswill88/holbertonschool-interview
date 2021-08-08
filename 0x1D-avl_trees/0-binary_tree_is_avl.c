@@ -50,5 +50,5 @@ int height(binary_tree_t *tree, binary_tree_t* head)
  */
 int binary_tree_is_avl(const binary_tree_t *tree)
 {
-	return ((!tree || (height(tree->right, (binary_tree_t *)tree) - height(tree->left, (binary_tree_t *)tree)) > 0) ? 0 : 1);
+	return ((!tree || (height(tree->right, (binary_tree_t *)tree) - height(tree->left, (binary_tree_t *)tree)) > 1) ? 0 : 1);
 }
