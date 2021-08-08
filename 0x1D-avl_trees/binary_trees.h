@@ -27,7 +27,7 @@ typedef struct binary_tree_s avl_t;
 
 int is_sort(binary_tree_t *head, binary_tree_t *node);
 int max(int num1, int num2);
-int height(binary_tree_t *tree, binary_tree_t* head);
+int height(binary_tree_t *tree, binary_tree_t *head);
 int binary_tree_is_avl(const binary_tree_t *);
 
 void binary_tree_print(const binary_tree_t *tree);
