@@ -55,20 +55,14 @@ int max(int num1, int num2)
 int height(binary_tree_t *tree, binary_tree_t *h, int both)
 {
 	if (tree && !is_sort(h, tree, 0))
-	{
-		printf("Not sorted\n");
 		return (9999999);
-	}
 
 	if (tree && (!tree->left || !tree->right))
 	{
 		if (!tree->left && !tree->right)
 			return (0);
 		else if (!both)
-		{
-			printf("OOFFF\n");
 			return (9999999);
-		}
 		both = 0;
 	}
 
