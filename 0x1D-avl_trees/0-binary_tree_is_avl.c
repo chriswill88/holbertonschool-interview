@@ -11,20 +11,12 @@
 int is_sort(binary_tree_t *head, binary_tree_t *n, int f)
 {
 	int hval, nval = n->n;
-	binary_tree_t *grand;
 
 	if (head == NULL)
 	{
 		if (f)
 			return (1);
 		return (0);
-	}
-
-	if (head->parent->parent)
-	{
-		grand = head->parent->parent;
-		if (!grand->left || !grand->right)
-			return (0);
 	}
 
 	hval = head->n;
@@ -56,17 +48,31 @@ int max(int num1, int num2)
  *
  * @tree: ptr to the tree
  * @h: head of the tree
+ * @both: if both nodes exist
  *
  * Return: the height of the tree.
  */
-int height(binary_tree_t *tree, binary_tree_t *h)
+int height(binary_tree_t *tree, binary_tree_t *h, int both)
 {
 	if (tree && !is_sort(h, tree, 0))
 	{
 		printf("Not sorted\n");
 		return (9999999);
 	}
-	return (!tree ? 0 : (max(height(tree->left, h), height(tree->right, h)) + 1));
+
+	if (tree && (!tree->left || !tree->right))
+	{
+		if (!tree->left && !tree->right)
+			return (0);
+		else if (!both)
+		{
+			printf("OOFFF\n");
+			return (9999999);
+		}
+		both = 0;
+	}
+
+	return (!tree ? 0 : (max(height(tree->left, h, both), height(tree->right, h, both)) + 1));
 }
 
 /**
@@ -82,5 +88,5 @@ int binary_tree_is_avl(const binary_tree_t *tree)
 	if (!tree)
 		return (0);
 
-	return (((height(tree->right, h) - height(tree->left, h)) > 1) ? 0 : 1);
+	return (((height(tree->right, h, 1) - height(tree->left, h, 1)) > 1) ? 0 : 1);
 }
