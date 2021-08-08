@@ -58,7 +58,6 @@ int height(binary_tree_t *tree, binary_tree_t *h)
 {
 	if (tree && !is_sort(h, tree, 0))
 	{
-		printf("Not sorted\n");
 		return (9999999);
 	}
 	return (!tree ? 0 : (max(height(tree->left, h), height(tree->right, h)) + 1));
