@@ -4,21 +4,34 @@
  * is_sort - checks if the node is in the right place
  *
  * @head: head of the tree
- * @node: node to check for
+ * @n: node to check for
+ * @f: bool - found node vaule
  * Return: 0 || 1
  */
-int is_sort(binary_tree_t *head, binary_tree_t *node)
+int is_sort(binary_tree_t *head, binary_tree_t *n, int f)
 {
-	int hval, nval = node->n;
+	int hval, nval = n->n;
 
 	if (head == NULL)
+	{
+		if (f)
+			return (1);
 		return (0);
+	}
+
+	if (head->parent && (!head->parent->left || !head->parent->right))
+		return (0);
+
 	hval = head->n;
 
 	if (hval == nval)
-		return (1);
+	{
+		if (f)
+			return (0);
+		f = 1;
+	}
 
-	return (nval > hval ? is_sort(head->right, node) : is_sort(head->left, node));
+	return (nval > hval ? is_sort(head->right, n, f) : is_sort(head->left, n, f));
 }
 
 /**
@@ -43,9 +56,10 @@ int max(int num1, int num2)
  */
 int height(binary_tree_t *tree, binary_tree_t *h)
 {
-	if (tree && !is_sort(h, tree))
+	if (tree && !is_sort(h, tree, 0))
 	{
-		return (100000);
+		printf("Not sorted\n");
+		return (9999999);
 	}
 	return (!tree ? 0 : (max(height(tree->left, h), height(tree->right, h)) + 1));
 }
