@@ -46,27 +46,27 @@ int max(int num1, int num2)
 /**
  * height - returns the height of the binary tree
  *
- * @tree: ptr to the tree
+ * @t: ptr to the tree
  * @h: head of the tree
- * @both: if both nodes exist
+ * @b: if both nodes exist
  *
  * Return: the height of the tree.
  */
-int height(binary_tree_t *tree, binary_tree_t *h, int both)
+int height(binary_tree_t *t, binary_tree_t *h, int b)
 {
-	if (tree && !is_sort(h, tree, 0))
+	if (t && !is_sort(h, t, 0))
 		return (9999999);
 
-	if (tree && (!tree->left || !tree->right))
+	if (t && (!t->left || !t->right))
 	{
-		if (!tree->left && !tree->right)
+		if (!t->left && !t->right)
 			return (0);
-		else if (!both)
+		else if (!b)
 			return (9999999);
-		both = 0;
+		b = 0;
 	}
 
-	return (!tree ? 0 : (max(height(tree->left, h, both), height(tree->right, h, both)) + 1));
+	return (!t ? 0 : (max(height(t->left, h, b), height(t->right, h, b)) + 1));
 }
 
 /**
@@ -91,5 +91,5 @@ int binary_tree_is_avl(const binary_tree_t *tree)
 		return (0);
 	balance = right - left;
 
-	return ((1 < balance || balance < 0) ? 0 : 1);
+	return ((1 < balance || 0 > balance) ? 0 : 1);
 }
