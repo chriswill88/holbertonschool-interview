@@ -78,9 +78,18 @@ int height(binary_tree_t *tree, binary_tree_t *h, int both)
 int binary_tree_is_avl(const binary_tree_t *tree)
 {
 	binary_tree_t *h = (binary_tree_t *)tree;
+	int right, left, balance;
 
 	if (!tree)
 		return (0);
 
-	return (((height(tree->right, h, 1) - height(tree->left, h, 1)) > 1) ? 0 : 1);
+	right = height(tree->right, h, 1);
+	if (right == 9999999)
+		return (0);
+	left = height(tree->left, h, 1);
+	if (left == 9999999)
+		return (0);
+	balance = right - left;
+
+	return ((1 < balance || balance < 0) ? 0 : 1);
 }
