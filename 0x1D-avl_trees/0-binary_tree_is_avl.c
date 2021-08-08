@@ -11,6 +11,7 @@
 int is_sort(binary_tree_t *head, binary_tree_t *n, int f)
 {
 	int hval, nval = n->n;
+	binary_tree_t *grand;
 
 	if (head == NULL)
 	{
@@ -19,8 +20,12 @@ int is_sort(binary_tree_t *head, binary_tree_t *n, int f)
 		return (0);
 	}
 
-	if (head->parent && (!head->parent->left || !head->parent->right))
-		return (0);
+	if (head->parent->parent)
+	{
+		grand = head->parent->parent;
+		if (!grand->left || !grand->right)
+			return (0);
+	}
 
 	hval = head->n;
 
