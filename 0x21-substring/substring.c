@@ -113,14 +113,18 @@ int processer(char const *s, int i, char const **w, int n_w, int len_w, int *f)
 int *find_substring(char const *s, char const **words, int nb_words, int *n)
 {
 	int ind = 0, len = 0, i = 0;
-	static int found[100], r[100];
-	int *f = found;
+	static int found[100];
+	int *f = found, *r;
 
 	*n = 0;
-	reset(r, 100);
 
 	for (; words[0][len] != '\0'; len++)
 		;
+  
+  r = malloc(len * sizeof(int));
+	reset(r, len);
+
+
 
 	for (; s[ind]; ind++)
 	{
