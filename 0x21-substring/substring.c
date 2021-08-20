@@ -116,7 +116,7 @@ int *find_substring(char const *s, char const **words, int nb_words, int *n)
 	static int found[100], r[100];
 	int *f = found;
 
-	n[0] = 0;
+	*n = 0;
 	reset(r, 100);
 
 	for (; words[0][len] != '\0'; len++)
@@ -128,7 +128,7 @@ int *find_substring(char const *s, char const **words, int nb_words, int *n)
 
 		if (processer(s, ind, words, nb_words, len, f))
 		{
-			n[0] = i + 1;
+			*n = i + 1;
 			r[i] = ind;
 			i++;
 		}
