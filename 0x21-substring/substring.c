@@ -121,7 +121,7 @@ int *find_substring(char const *s, char const **words, int nb_words, int *n)
 	for (; words[0][len] != '\0'; len++)
 		;
 
-  r = malloc(len * sizeof(int));
+	r = malloc(len * sizeof(int));
 	reset(r, len);
 
 	for (; s[ind]; ind++)
