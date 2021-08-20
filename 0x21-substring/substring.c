@@ -113,7 +113,7 @@ int processer(char const *s, int i, char const **w, int n_w, int len_w, int *f)
 int *find_substring(char const *s, char const **words, int nb_words, int *n)
 {
 	int ind = 0, len = 0, i = 0;
-	static int found[100], r[50] = {0};
+	static int found[100], r[50];
 	int *f = found;
 
 	n[0] = 0;
