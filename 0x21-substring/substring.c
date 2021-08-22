@@ -42,20 +42,18 @@ int donecheck(int *found, int nb_words)
  * @w: list of words
  * @s: string
  * @b: index of string
- * @f: the found words - represented by indexs
- * @n: number of words
- * @l: length of substrings
+ * @found: the found words - represented by indexs
  *
  * Return: 1 or 0
  */
-int string_cmp(char const **w, char const *s, int b, int f[100], int n, int l)
+int string_cmp(char const **w, char const *s, int b, int found[100])
 {
 	int i = 0, x, fail;
 
-	for (; i < n; i++)
+	for (; w[i] != NULL; i++)
 	{
 		fail = 1;
-		for (x = 0; x < l; x++)
+		for (x = 0; w[i][x] != '\0'; x++)
 		{
 			if (s[b + x] != w[i][x])
 			{
@@ -63,9 +61,9 @@ int string_cmp(char const **w, char const *s, int b, int f[100], int n, int l)
 				continue;
 			}
 		}
-		if (f[i] == 0 && fail)
+		if (found[i] == 0 && fail)
 		{
-			f[i] = 1;
+			found[i] = 1;
 			return (1);
 		}
 	}
@@ -87,9 +85,9 @@ int string_cmp(char const **w, char const *s, int b, int f[100], int n, int l)
  */
 int processer(char const *s, int i, char const **w, int n_w, int len_w, int *f)
 {
-	while (i < n_w)
+	while (s[i])
 	{
-		if (string_cmp(w, s, i, f, n_w, len_w))
+		if (string_cmp(w, s, i, f))
 			i += len_w;
 		else
 			return (0);
@@ -123,11 +121,8 @@ int *find_substring(char const *s, char const **words, int nb_words, int *n)
 	for (; words[0][len] != '\0'; len++)
 		;
 
-	r = malloc(100 * sizeof(int));
-	if (r == NULL)
-		return (NULL);
-
-	reset(r, 100);
+	r = malloc(len * sizeof(int));
+	reset(r, len);
 
 	for (; s[ind]; ind++)
 	{
@@ -139,6 +134,5 @@ int *find_substring(char const *s, char const **words, int nb_words, int *n)
 			i++;
 		}
 	}
-
 	return (r);
 }
