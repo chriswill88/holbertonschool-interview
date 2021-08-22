@@ -120,7 +120,7 @@ int *find_substring(char const *s, char const **words, int nb_words, int *n)
 
 	*n = 0;
 
-	if (s == NULL || *words == NULL || **words == '\0')
+	if (*words == NULL || **words == '\0')
 		return (NULL);
 
 	for (; words[0][len] != '\0'; len++)
