@@ -5,8 +5,6 @@ def is_prime(n):
     if n <= 1:
         return 0
 
-    l = range(2, int(n / 2))
-
     for i in range(2, int(n / 2)):
         if not (n % i):
             return 0
