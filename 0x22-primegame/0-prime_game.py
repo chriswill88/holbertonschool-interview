@@ -35,7 +35,7 @@ def game(array, winner):
     for i in array:
         if is_prime(i):
             find_multiples(array, i)
-            winner = 'Mary' if winner == 'Ben' else 'Ben'
+            winner = 'Maria' if winner == 'Ben' else 'Ben'
             winner = game(array, winner)
     return winner
 
@@ -49,6 +49,6 @@ def isWinner(x, nums):
 
     for i in nums:
         winner.append(game(list(range(1, i + 1)), 'Ben'))
-    if winner.count('Ben') == winner.count('Mary'):
+    if x < 1 or winner.count('Ben') == winner.count('Maria'):
         return None
-    return 'Ben' if winner.count('Ben') > winner.count('Mary') else 'Mary'
+    return 'Ben' if winner.count('Ben') > winner.count('Maria') else 'Maria'
