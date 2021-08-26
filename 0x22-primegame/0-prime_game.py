@@ -1,7 +1,11 @@
 #!/usr/bin/python3
+"""This modual contains the function used in Task 0"""
 
 
 def is_prime(n):
+    """
+      this function checks if the number is a prime
+    """
     if n <= 1:
         return 0
 
@@ -12,12 +16,19 @@ def is_prime(n):
 
 
 def find_multiples(array, num):
+    """
+      this function removes the number and any
+      of the multiples from the array
+    """
     for i in array:
         if i % num == 0:
             array.remove(i)
 
 
 def game(array, winner):
+    """
+      this function recursivly plays the prime game
+    """
     if not len(array):
         return winner
 
@@ -30,6 +41,10 @@ def game(array, winner):
 
 
 def isWinner(x, nums):
+    """
+      This function is the main function of the prime game,
+      it returns who one.
+    """
     winner = []
 
     for i in nums:
