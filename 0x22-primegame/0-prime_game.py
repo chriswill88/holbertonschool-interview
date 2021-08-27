@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import time
 """This modual contains the function used in Task 0"""
 
 
@@ -21,8 +22,8 @@ def find_multiples(array, num):
       of the multiples from the array
     """
     if num == 1 or num == 0:
-      array.remove(num)
-      return
+        array.remove(num)
+        return
 
     for i in array:
         if i % num == 0:
@@ -34,12 +35,13 @@ def game(array, winner):
       this function recursivly plays the prime game
     """
 
-    for i in array:
-        if is_prime(i):
-            find_multiples(array, i)
+    while len(array):
+        value = array[0]
+        if is_prime(value):
+            find_multiples(array, value)
             winner = 'Maria' if winner == 'Ben' else 'Ben'
         else:
-            find_multiples(array, i)
+            find_multiples(array, value)
     return winner
 
 
@@ -50,10 +52,10 @@ def isWinner(x, nums):
     """
     winner = []
     if x < 1:
-      return None
+        return None
 
     for i in nums:
-        winner.append(game(list(range(1, i + 1)), 'Ben'))
+        winner.append(game(list(range(2, i + 1)), 'Ben'))
     if winner.count('Ben') == winner.count('Maria'):
         return None
     return 'Ben' if winner.count('Ben') > winner.count('Maria') else 'Maria'
