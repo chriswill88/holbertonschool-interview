@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-import time
 """This modual contains the function used in Task 0"""
 
 
