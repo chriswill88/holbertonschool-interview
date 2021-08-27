@@ -21,10 +21,6 @@ def find_multiples(array, num):
       this function removes the number and any
       of the multiples from the array
     """
-    if num == 1 or num == 0:
-        array.remove(num)
-        return
-
     for i in array:
         if i % num == 0:
             array.remove(i)
