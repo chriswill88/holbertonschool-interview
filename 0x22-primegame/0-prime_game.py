@@ -58,5 +58,4 @@ def isWinner(x, nums):
         winner.append(game(list(range(1, i + 1)), 'Ben'))
     if winner.count('Ben') == winner.count('Maria'):
         return None
-    print(winner)
     return 'Ben' if winner.count('Ben') > winner.count('Maria') else 'Maria'
