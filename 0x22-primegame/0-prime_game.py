@@ -20,6 +20,10 @@ def find_multiples(array, num):
       this function removes the number and any
       of the multiples from the array
     """
+    if num == 1 or num == 0:
+      array.remove(num)
+      return
+
     for i in array:
         if i % num == 0:
             array.remove(i)
@@ -33,10 +37,11 @@ def game(array, winner):
         return winner
 
     for i in array:
-        if is_prime(i):
+        if is_prime(i) == 1:
             find_multiples(array, i)
             winner = 'Maria' if winner == 'Ben' else 'Ben'
-            winner = game(array, winner)
+        else:
+            find_multiples(array, i)
     return winner
 
 
@@ -46,9 +51,12 @@ def isWinner(x, nums):
       it returns who one.
     """
     winner = []
+    if x < 1:
+      return None
 
     for i in nums:
         winner.append(game(list(range(1, i + 1)), 'Ben'))
-    if x < 1 or winner.count('Ben') == winner.count('Maria'):
+    if winner.count('Ben') == winner.count('Maria'):
         return None
+    print(winner)
     return 'Ben' if winner.count('Ben') > winner.count('Maria') else 'Maria'
