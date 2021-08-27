@@ -33,11 +33,9 @@ def game(array, winner):
     """
       this function recursivly plays the prime game
     """
-    if not len(array):
-        return winner
 
     for i in array:
-        if is_prime(i) == 1:
+        if is_prime(i):
             find_multiples(array, i)
             winner = 'Maria' if winner == 'Ben' else 'Ben'
         else:
